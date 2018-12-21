@@ -1,0 +1,56 @@
+# Create aircraft
+
+mutation CreateAircraft($aircraft: createBaseAircraftInput) {
+  createBaseAircraft(input: $aircraft) {
+    name
+    engines
+    distance
+    code
+    manufacturer
+  }
+}
+
+## Variables
+
+{
+  "aircraft": {
+    "name": "boeing 787-8",
+    "engines": 2,
+    "distance": 4800,
+    "code": "788",
+    "manufacturer": "boeing",
+    "type": "long",
+    "clientMutationId": "10",
+    "_id": 10
+  }
+}
+
+# Create airliners
+
+mutation CreateAirliner($airliner: createPassengerAirlinersInput) {
+  createPassengerAirliners(input: $airliner) {
+    passenger
+    owner
+    reg
+    aircraft {
+      name
+      id
+    }
+  }
+}
+
+## Variables
+
+{
+  "airliner": {
+    "_id": 10,
+    "clientMutationId": "lol",
+    "thrust": "74100",
+    "aisle": 2,
+    "reg": "B-2727",
+    "passenger": 245,
+    "owner": "China southern airlines",
+    "cargo": "20",
+    "aircraft": "789"
+  }
+}

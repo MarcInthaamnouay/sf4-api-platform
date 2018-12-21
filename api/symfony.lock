@@ -98,8 +98,23 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "lcobucci/jwt": {
+        "version": "3.2.5"
+    },
     "league/html-to-markdown": {
         "version": "4.6.2"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "509b1542f3180a1cfe248ade8b7bf5092c2d4127"
+        }
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
     },
     "nelmio/cors-bundle": {
         "version": "1.5",
@@ -164,6 +179,9 @@
     "symfony/doctrine-bridge": {
         "version": "v4.0.3"
     },
+    "symfony/dotenv": {
+        "version": "v4.2.1"
+    },
     "symfony/event-dispatcher": {
         "version": "v4.0.3"
     },
@@ -185,6 +203,9 @@
             "ref": "cc1afd81841db36fbef982fe56b48ade6716fac4"
         }
     },
+    "symfony/form": {
+        "version": "v4.1.9"
+    },
     "symfony/framework-bundle": {
         "version": "3.3",
         "recipe": {
@@ -203,11 +224,17 @@
     "symfony/inflector": {
         "version": "v4.0.3"
     },
+    "symfony/intl": {
+        "version": "v4.2.1"
+    },
     "symfony/options-resolver": {
         "version": "v4.0.3"
     },
     "symfony/polyfill-ctype": {
         "version": "v1.8.0"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.10.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"

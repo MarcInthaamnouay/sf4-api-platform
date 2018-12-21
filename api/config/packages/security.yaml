@@ -1,18 +1,47 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        app.provider:
+            id: App\Security\ProfileProvider
+
+    encoders:
+        App\Entity\Profile\Profile:
+            algorithm: bcrypt
+            cost: 13
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        login:
+            pattern: ^/api/login
+            stateless: true
+            anonymous: true
+            json_login:
+                check_path:         /api/login_check
+                success_handler:    lexik_jwt_authentication.handler.authentication_success
+                failure_handler:    lexik_jwt_authentication.handler.authentication_failure
+
+        graphql:
+            pattern: ^/graphql
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                - lexik_jwt_authentication.jwt_token_authenticator
+
+        api:
+            pattern: ^/api
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                - lexik_jwt_authentication.jwt_token_authenticator
+
         main:
             anonymous: ~
 
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # https://symfony.com/doc/current/security/form_login_setup.html
+    access_control:
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/graphql, roles: [ROLE_USER, ROLE_ADMIN] }

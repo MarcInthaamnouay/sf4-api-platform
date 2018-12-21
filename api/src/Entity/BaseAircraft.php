@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: marcintha
+ * Profile: marcintha
  * Date: 03/12/2018
  * Time: 18:14
  */
@@ -9,6 +9,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Class AbstractAircraftModel
@@ -16,7 +17,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource
  * @ORM\Entity
- *
  *
  */
 class BaseAircraft

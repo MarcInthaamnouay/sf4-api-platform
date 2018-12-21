@@ -1,0 +1,26 @@
+# Query airliners
+
+{
+  passengerAirliners {
+    edges {
+      node {
+        aisle
+		reg
+      }
+    }
+  }
+}
+
+# Query airplanes
+
+{
+  baseAircrafts {
+    edges {
+      node {
+        name
+        id
+        _id
+      }
+    }
+  }
+}
